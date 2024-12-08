@@ -1,6 +1,6 @@
 import React from "react";
 import restBg from "../assets/rest-bg.jpg"; // Add a restaurant-themed background image in `assets`
-import menu from "../assets/menu2.png";
+import menu from "../assets/menu.png";
 import room from "../assets/room.png";
 
 const Home = () => {

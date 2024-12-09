@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import back from "../assets/rest-bg.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -41,12 +42,17 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-800 px-4">
+    <div 
+    className="flex bg-cover bg-center    items-center justify-center min-h-screen bg-gray-800 px-4"
+    style={{
+      backgroundImage: `url(${back})`,
+    }}
+    >
       <form
-        className="bg-white shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm"
+        className="bg-gray-900 shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <h2 className="text-2xl text-yellow-300 font-bold mb-6 text-center">Login</h2>
         {error && (
           <p className="text-red-500 text-sm mb-4 text-center" aria-live="assertive">
             {error}
@@ -55,7 +61,7 @@ const Login = () => {
         <div className="mb-4">
           <label
             htmlFor="email"
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-yellow-200 text-sm font-bold mb-2"
           >
             Email
           </label>

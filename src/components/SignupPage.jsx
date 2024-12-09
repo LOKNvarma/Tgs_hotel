@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import back from "../assets/rest-bg.jpg";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -36,7 +37,8 @@ const Signup = () => {
       } else {
         try {
           const errorData = await response.json();
-          setError(errorData.message || "Something went wrong.");
+          console.log(errorData);
+          setError(errorData.error|| "user already exists.");
         } catch {
           setError("An unknown error occurred.");
         }
@@ -49,12 +51,17 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-800 px-4">
+    <div 
+     className="flex bg-cover bg-center  items-center justify-center min-h-screen bg-gray-800 px-4"
+     style={{
+      backgroundImage: `url(${back})`,
+    }}
+     >
       <form
-        className="bg-white shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm"
+        className="bg-gray-900 shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+        <h2 className="text-2xl text-yellow-300 sm:text-3xl font-bold mb-6 text-center">
           Signup
         </h2>
         {error && (
@@ -68,7 +75,7 @@ const Signup = () => {
         <div className="mb-4">
           <label
             htmlFor="username"
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-yellow-200 text-sm font-bold mb-2"
           >
             Name
           </label>
@@ -85,7 +92,7 @@ const Signup = () => {
         <div className="mb-4">
           <label
             htmlFor="email"
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-yellow-200  text-sm font-bold mb-2"
           >
             Email
           </label>
@@ -102,7 +109,7 @@ const Signup = () => {
         <div className="mb-4">
           <label
             htmlFor="phone"
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-yellow-200  text-sm font-bold mb-2"
           >
             Phone Number
           </label>

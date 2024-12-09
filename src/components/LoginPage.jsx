@@ -27,7 +27,7 @@ const Login = () => {
       if (response.ok) {
         // Handle successful login
         const data = await response.json();
-        console.log("Login successful:", data);
+       
         navigate("/", { state: { success: true } }); // Redirect to home
       } else {
         // Handle login errors
@@ -43,13 +43,16 @@ const Login = () => {
 
   return (
     <div 
-    className="flex bg-cover bg-center    items-center justify-center min-h-screen bg-gray-800 px-4"
+    className="flex bg-cover bg-center  items-center justify-center min-h-screen bg-gray-800 px-4"
     style={{
       backgroundImage: `url(${back})`,
     }}
     >
+      
+    
+      <div className="absolute flex items-center justify-center inset-0 bg-black bg-opacity-50">
       <form
-        className="bg-gray-900 shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm"
+        className="  bg-gray-900 shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm"
         onSubmit={handleSubmit}
       >
         <h2 className="text-2xl text-yellow-300 font-bold mb-6 text-center">Login</h2>
@@ -85,6 +88,7 @@ const Login = () => {
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>
+      </div>
     </div>
   );
 };

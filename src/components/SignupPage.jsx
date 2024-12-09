@@ -37,7 +37,7 @@ const Signup = () => {
       } else {
         try {
           const errorData = await response.json();
-          console.log(errorData);
+      
           setError(errorData.error|| "user already exists.");
         } catch {
           setError("An unknown error occurred.");
@@ -57,6 +57,7 @@ const Signup = () => {
       backgroundImage: `url(${back})`,
     }}
      >
+      <div className="absolute flex items-center justify-center inset-0 bg-black bg-opacity-50">
       <form
         className="bg-gray-900 shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm"
         onSubmit={handleSubmit}
@@ -133,6 +134,7 @@ const Signup = () => {
           {loading ? "Signing up..." : "Signup"}
         </button>
       </form>
+      </div>
     </div>
   );
 };

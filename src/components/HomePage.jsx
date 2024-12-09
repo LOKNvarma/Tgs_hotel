@@ -80,7 +80,7 @@ const Home = () => {
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl md:text-2xl text-yellow-100 mt-4 font-light "
+            className="text-lg sm:text-xl md:text-2xl text-yellow-200 mt-4 font-light "
             variants={textVariants}
           >
             A destination where elegance meets indulgence.

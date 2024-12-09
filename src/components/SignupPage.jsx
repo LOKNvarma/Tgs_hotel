@@ -1,24 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Hook to handle navigation
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess(false);
+    setLoading(true);
+
+    const apiUrl = "https://hotel-tgs.onrender.com/auth/signup";
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, phoneNumber }),
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        setName("");
+        setEmail("");
+        setPhoneNumber("");
+        navigate("/", { state: { message: "Signup successful!" } }); // Redirect with a success message
+      } else {
+        try {
+          const errorData = await response.json();
+          setError(errorData.message || "Something went wrong.");
+        } catch {
+          setError("An unknown error occurred.");
+        }
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-800 px-4">
-      <form className="bg-white shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm">
+      <form
+        className="bg-white shadow-md rounded px-6 sm:px-8 pt-6 pb-8 w-full max-w-sm"
+        onSubmit={handleSubmit}
+      >
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
           Signup
         </h2>
+        {error && (
+          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+        )}
+        {success && (
+          <p className="text-green-500 text-sm mb-4 text-center">
+            Signup successful! 🎉
+          </p>
+        )}
         <div className="mb-4">
           <label
             htmlFor="username"
             className="block text-gray-700 text-sm font-bold mb-2"
           >
-            Username
+            Name
           </label>
           <input
             id="username"
             type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             placeholder="Enter your username"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
           />
         </div>
         <div className="mb-4">
@@ -31,8 +92,11 @@ const Signup = () => {
           <input
             id="email"
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
           />
         </div>
         <div className="mb-4">
@@ -45,15 +109,21 @@ const Signup = () => {
           <input
             id="phone"
             type="tel"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
             placeholder="Enter your phone number"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
           />
         </div>
         <button
           type="submit"
-          className="bg-yellow-300 hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition duration-200"
+          className={`${
+            loading ? "bg-gray-300" : "bg-yellow-300 hover:bg-yellow-400"
+          } text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition duration-200`}
+          disabled={loading}
         >
-          Signup
+          {loading ? "Signing up..." : "Signup"}
         </button>
       </form>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import restBg from "../assets/rest-bg.jpg";
 import menu from "../assets/menu.png";
@@ -88,7 +89,8 @@ const Home = () => {
 
           {/* Animated Button */}
           <motion.div className="mt-10" variants={buttonVariants}>
-            <button
+          
+           <button
               onClick={handleBooking}
               className="px-8 py-3 text-lg font-semibold bg-gradient-to-r from-gold-400 to-yellow-600 text-yellow-200 rounded-full shadow-2xl transition transform hover:scale-105 hover:shadow-gold-700"
               style={{
@@ -98,6 +100,7 @@ const Home = () => {
             >
               Book Hotel
             </button>
+        
           </motion.div>
         </motion.div>
       </div>
@@ -115,13 +118,15 @@ const Home = () => {
             animate="visible"
             variants={greetingVariants}
           ></motion.div>
-          <motion.button
-            onClick={handleBooking}
+         <Link to="/menu">
+         <motion.button
+            
             className="mt-6 sm:mt-10 px-6 sm:px-10 py-2 text-sm sm:text-lg font-semibold bg-gradient-to-r from-yellow-300 to-orange-700 text-black rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             variants={buttonVariants}
           >
             Menu
           </motion.button>
+         </Link>
         </div>
 
         {/* Room Section */}

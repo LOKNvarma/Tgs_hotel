@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 
 const MenuSection = () => {
   const [menuData, setMenuData] = useState([]); // To hold menu data from API
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
 
-  // Fetch menu data from API
+  // Fetch menu data from API  
   useEffect(() => {
     const fetchMenuData = async () => {
       try {

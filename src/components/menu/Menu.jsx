@@ -80,16 +80,18 @@ const MenuSection = () => {
           {menuData.map((item, index) => (
             <div
               key={index}
-              className="menu-item bg-gray-800 p-6 rounded-md shadow-sm transform transition duration-500 opacity-0"
+              className="menu-item bg-gray-800 p-6 rounded-md hover:bg-gray-900 shadow-sm transform transition duration-500 opacity-0"
               style={{ transitionDelay: `${index * 50}ms` }}
             >
-              <img
+             
+             <img
                 src={item.image} // Fallback if no image
                
-                className="w-full h-58 object-cover rounded-sm mb-4"
+                className="w-full h-56 hover:scale-105 duration-700 object-cover shadow-black  rounded-md mb-4"
               />
+            
               <h3 className="text-md font-semibold text-yellow-200">{item.englishName}</h3>
-              <p className="text-yellow-50 mt-2">{item.hindiName}</p>
+              <p className="text-yellow-50  font-semibold mt-2">{item.hindiName}</p>
         
             </div>
           ))}

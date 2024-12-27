@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./components/HomePage";
 import Login from "./components/LoginPage";
 import Signup from "./components/SignupPage";
-import Menu from "./components/Menu" ;
+import Menu from "./components/menu/Menu" ;
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

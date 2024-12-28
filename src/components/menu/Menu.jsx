@@ -83,7 +83,7 @@ const MenuSection = () => {
             <Link to={`/menu/category/${item.englishName}`} key={index}>
             <div
               key={index}
-              className="menu-item bg-gray-800 p-6 rounded-md hover:bg-gray-900 shadow-sm transform transition duration-500 opacity-0"
+              className="menu-item  bg-gray-800 p-6 rounded-lg  hover:bg-gray-900 shadow-sm shadow-orange-200 transform transition duration-500 opacity-0 "
               style={{ transitionDelay: `${index * 50}ms` }}
             >
              

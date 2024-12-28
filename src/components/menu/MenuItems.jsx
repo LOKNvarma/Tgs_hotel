@@ -12,9 +12,9 @@ const CategoryMenuItems = () => {
     const fetchMenuItems = async () => {
       try {
         setLoading(true);
+       
         const response = await fetch(`https://hotel-tgs.onrender.com/menu/get-all-menu-items?category=${category}`);
         const data = await response.json();
-        console.log(data);
         setMenuItems(data.menuItems || []); // Assuming `data.items` contains the menu items
       } catch (err) {
         setError("Failed to load menu items. Please try again later.");
@@ -48,18 +48,18 @@ const CategoryMenuItems = () => {
         <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-orange-600 mb-8">
           Items : &nbsp; {category}
         </h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
           {menuItems.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-800 p-6 rounded-md hover:bg-gray-900  shadow-sm transform transition duration-500"
+              className="bg-gray-800 p-6 rounded-md hover:bg-gray-900  shadow-sm transform transition duration-500  hover:shadow-lg hover:shadow-yellow-400"
             >
               <img
                 src={item.image || "default-image-url"}
                 alt={item.name}
                 className="w-full h-56 hover:scale-105 duration-700 object-cover rounded-md mb-4"
               />
-              <h3 className="text-md font-semibold text-lg text-yellow-200">{item.englishName} &nbsp;/ &nbsp;{item.hindiName}</h3>
+              <h3 className="text-md font-semibold text-lg text-yellow-200">{item.englishName} &nbsp;/ <span className="text-md  text-sm text-yellow-400">&nbsp;{item.hindiName}</span></h3>
               <p className=" text-gray-300 hover:text-green-500 mt-2">Price : {item.price}  &#8377;/-</p>
             
             </div>

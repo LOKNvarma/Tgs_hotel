@@ -11,7 +11,7 @@ const MenuSection = () => {
     const fetchMenuData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://hotel-tgs.onrender.com/menu/menuGetAll");
+        const response = await fetch("https://hotel-tgs.onrender.com/menu-category//menuGetAll");
   
         const data = await response.json();
         const categories = data.menuCategories;

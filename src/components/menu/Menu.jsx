@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const MenuSection = () => {
@@ -75,9 +76,11 @@ const MenuSection = () => {
         </div>
       
         {/* Menu Items */}
+        
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         
           {menuData.map((item, index) => (
+            <Link to={`/menu/category/${item.englishName}`} key={index}>
             <div
               key={index}
               className="menu-item bg-gray-800 p-6 rounded-md hover:bg-gray-900 shadow-sm transform transition duration-500 opacity-0"
@@ -94,8 +97,10 @@ const MenuSection = () => {
               <p className="text-yellow-50  font-semibold mt-2">{item.hindiName}</p>
         
             </div>
+           </Link>
           ))}
         </div>
+        
       </div>
     </section>
   );

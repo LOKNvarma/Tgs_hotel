@@ -6,6 +6,7 @@ import Home from "./components/HomePage";
 import Login from "./components/LoginPage";
 import Signup from "./components/SignupPage";
 import Menu from "./components/menu/Menu" ;
+import CategoryMenuItems from "./components/menu/MenuItems";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,7 +28,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/signup" element={<Signup setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/menu" element={<Menu />}></Route>
+            <Route path="/menu" element={<Menu />}></Route> 
+            <Route path="/menu/category/:category" element={<CategoryMenuItems />} />  
           </Routes>
         </div>
         <Footer />

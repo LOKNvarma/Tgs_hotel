@@ -52,7 +52,7 @@ const CategoryMenuItems = () => {
           {menuItems.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-800 p-6 rounded-md hover:bg-gray-900  shadow-sm transform transition duration-500  hover:shadow-lg hover:shadow-yellow-400"
+              className="bg-gray-800 p-6 rounded-md hover:bg-gray-900  shadow-sm transform transition duration-500  hover:shadow-md hover:shadow-yellow-400"
             >
               <img
                 src={item.image || "default-image-url"}

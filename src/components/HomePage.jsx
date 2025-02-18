@@ -71,7 +71,7 @@ const Home = () => {
           {/* Shimmering Gradient Heading */}
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600"
-            variants={textVariants}
+            variants={shimmerVariants}
             style={{
               backgroundSize: "200% 200%",
               animation: "luxuryShimmer 4s infinite alternate",
@@ -121,7 +121,10 @@ const Home = () => {
          <Link to="/menu">
          <motion.button
             
-            className="mt-6 sm:mt-10 px-6 sm:px-10 py-2 text-sm sm:text-lg font-semibold bg-gradient-to-r from-yellow-300 to-orange-700 text-black rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="mt-6 sm:mt-10 px-6 sm:px-10 py-2 text-sm sm:text-lg 
+             font-semibold bg-gradient-to-r from-yellow-300 to-orange-700
+             text-black rounded-lg shadow-lg transform transition-all duration-300
+              hover:scale-105 hover:shadow-2xl"
             variants={buttonVariants}
           >
             Menu

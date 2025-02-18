@@ -64,7 +64,7 @@ const Signup = ({ setIsLoggedIn }) => {
           )}
           {success && (
             <p className="text-green-500 text-sm mb-4 text-center">
-              Signup successful! 🎉
+              Signup successful! 
             </p>
           )}
           <div className="mb-4">
@@ -125,7 +125,7 @@ const Signup = ({ setIsLoggedIn }) => {
             } text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition duration-200`}
             disabled={loading}
           >
-            {loading ? "Signing up..." : "Signup"}
+            {loading ? "Signing up..." : "Signup"}   
           </button>
         </form>
       </div>

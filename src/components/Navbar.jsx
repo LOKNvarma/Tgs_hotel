@@ -54,7 +54,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
             <Link
               to="/"
               className={`block md:inline text-sm ${
-                location.pathname === "/" ? "font-extrabold " : "hover:underline"
+                location.pathname === "/" ? "font-extrabold" : "hover:underline"
               }`}
               onClick={() => setMenuOpen(false)}
             >

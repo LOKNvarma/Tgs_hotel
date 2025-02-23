@@ -27,7 +27,7 @@ const Login = ({ setIsLoggedIn }) => {
       if (response.ok) {
         localStorage.setItem("isLoggedIn", "true"); // Set user as logged in
         setIsLoggedIn(true); // Update login state
-        navigate("/", { state: { success: true } }); // Redirect to home
+        navigate("/", { state: { success: true } }); // Redirect to home  
       } else {
         // Handle login errors
         const errorData = await response.json();

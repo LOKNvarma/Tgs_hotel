@@ -7,14 +7,14 @@ const Signup = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // Hook to handle navigation
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setSuccess(false);
+
     setLoading(true);
 
     const apiUrl = "https://hotel-tgs.onrender.com/auth/signup";
@@ -23,7 +23,7 @@ const Signup = ({ setIsLoggedIn }) => {
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type" : "application/json",
         },
         body: JSON.stringify({ name, email, phoneNumber }),
       });
@@ -62,11 +62,7 @@ const Signup = ({ setIsLoggedIn }) => {
           {error && (
             <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
           )}
-          {success && (
-            <p className="text-green-500 text-sm mb-4 text-center">
-              Signup successful! 
-            </p>
-          )}
+        
           <div className="mb-4">
             <label
               htmlFor="username"
